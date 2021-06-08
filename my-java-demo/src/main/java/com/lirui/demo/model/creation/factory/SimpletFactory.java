@@ -1,13 +1,15 @@
-package com.lirui.demo.model.factory;
+package com.lirui.demo.model.creation.factory;
 
-public class ProductFactory<T> extends AbstractFactory<T> {
+/**
+ * simple factory
+ * */
+public class SimpletFactory<T> {
 
-    private T product;
+    private static Product product;
 
-    @Override
-    public T create(Class clazz) {
+    public static Product create(Class clazz) {
         try {
-            product = (T) Class.forName(clazz.getName()).newInstance();
+            product = (Product) Class.forName(clazz.getName()).newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -15,7 +17,6 @@ public class ProductFactory<T> extends AbstractFactory<T> {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
         return product;
     }
 }

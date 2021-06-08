@@ -1,4 +1,4 @@
-package com.lirui.demo.model.observer.simple;
+package com.lirui.demo.model.action.observer.simple;
 
 public class SimpleObserver extends Observer{
 

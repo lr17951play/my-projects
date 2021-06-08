@@ -1,4 +1,4 @@
-package com.lirui.demo.model.factory;
+package com.lirui.demo.model.creation.factory;
 
 import lombok.Data;
 

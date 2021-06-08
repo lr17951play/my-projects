@@ -1,4 +1,4 @@
-package com.lirui.demo.model.builder;
+package com.lirui.demo.model.creation.builder;
 
 import lombok.Data;
 

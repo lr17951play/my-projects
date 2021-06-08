@@ -1,4 +1,4 @@
-package com.lirui.demo.model.observer.others;
+package com.lirui.demo.model.action.observer.others;
 
 import com.google.common.eventbus.EventBus;
 import org.springframework.context.ApplicationEvent;

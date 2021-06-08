@@ -1,4 +1,4 @@
-package com.lirui.demo.model.singleton;
+package com.lirui.demo.model.creation.singleton;
 
 /**
  * @author Ryan

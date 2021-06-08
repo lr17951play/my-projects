@@ -1,4 +1,4 @@
-package com.lirui.demo.model.observer.simple;
+package com.lirui.demo.model.action.observer.simple;
 
 import java.util.ArrayList;
 import java.util.List;
