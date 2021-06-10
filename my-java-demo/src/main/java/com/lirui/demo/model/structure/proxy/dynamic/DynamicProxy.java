@@ -1,9 +1,10 @@
 package com.lirui.demo.model.structure.proxy.dynamic;
 
-import org.springframework.util.CollectionUtils;
-
 import java.lang.reflect.Proxy;
 
+/**
+ * @author Ryan
+ */
 public class DynamicProxy {
 
     private Object target;
