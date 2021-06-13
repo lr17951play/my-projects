@@ -2,6 +2,8 @@ package com.lirui.demo.structure.linear;
 
 import lombok.Data;
 
+import java.util.Stack;
+
 /**
  * @author Ryan
  */
@@ -39,6 +41,8 @@ public class SortedLinkedQueue {
         queue.reverse2();
         System.out.println("---------------------- reverse2 ----------------------");
         queue.print();
+        System.out.println("---------------------- reverse print ----------------------");
+        queue.reversePrint();
 
         System.out.println("---------------------- polling ----------------------");
         LinkedQueue.Node node = queue.poll();
@@ -117,6 +121,21 @@ class LinkedQueue {
             reverseHead = temp;
         }
         head = reverseHead;
+    }
+
+    public void reversePrint(){
+        if (head == null) {
+            System.out.println("链表为空...");
+        }
+        Node current = head;
+        Stack<Node> stack = new Stack<>();
+        while (current != null) {
+            stack.push(current);
+            current = current.next;
+        }
+        while (!stack.empty()) {
+            System.out.println(stack.pop());;
+        }
     }
 
     @Data
