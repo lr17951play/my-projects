@@ -36,6 +36,10 @@ public class SortedLinkedQueue {
         System.out.println("---------------------- reverse ----------------------");
         queue.print();
 
+        queue.reverse2();
+        System.out.println("---------------------- reverse2 ----------------------");
+        queue.print();
+
         System.out.println("---------------------- polling ----------------------");
         LinkedQueue.Node node = queue.poll();
         while (node != null) {
@@ -85,7 +89,7 @@ class LinkedQueue {
         }
     }
 
-    public void reverse(){
+    public void reverse() {
         if (head == null) {
             System.out.println("链表为空...");
         }
@@ -98,6 +102,21 @@ class LinkedQueue {
             current = current.next;
         }
         head = reverse;
+    }
+
+    public void reverse2() {
+        if (head == null) {
+            System.out.println("链表为空...");
+        }
+        Node reverseHead = new Node(head);
+        Node current = head.next, temp;
+        while (current != null) {
+            temp = current;
+            current = current.next;
+            temp.next = reverseHead;
+            reverseHead = temp;
+        }
+        head = reverseHead;
     }
 
     @Data
