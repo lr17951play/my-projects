@@ -16,7 +16,7 @@ public class ThreadTest {
     private CountDownLatch latch;
 
     @Test
-    public void test() throws InterruptedException {
+    public void testRandom() throws InterruptedException {
         latch = new CountDownLatch(10);
         for (int i = 0; i < 10; i++) {
             Thread th = new Thread(new MyRunner(random.nextInt()));
@@ -49,7 +49,7 @@ public class ThreadTest {
 
     @SneakyThrows
     @Test
-    public void test1() {
+    public void testWait() {
         latch = new CountDownLatch(2);
         Thread th1 = new Thread(new MyRunner2());
         Thread th2 = new Thread(new MyRunner2());
@@ -77,6 +77,31 @@ public class ThreadTest {
             }
             System.out.println(Thread.currentThread().getName() + " end------>");
             latch.countDown();
+        }
+    }
+
+    @SneakyThrows
+    @Test
+    public void testJoin() {
+        Thread th1 = new Thread(new MyRunner3());
+        Thread th2 = new Thread(new MyRunner3());
+        th1.start();
+        th1.join();
+        th2.start();
+        th2.join();
+        System.out.println("finished");
+    }
+
+    private class MyRunner3 implements Runnable {
+        @SneakyThrows
+        @Override
+        public void run() {
+                System.out.println(Thread.currentThread().getName() + " start------>");
+                for (int i = 0; i < 10; i++) {
+                    Thread.sleep(200L);
+                    System.out.println(i);
+                }
+            System.out.println(Thread.currentThread().getName() + " end------>");
         }
     }
 }
