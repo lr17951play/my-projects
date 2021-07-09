@@ -34,11 +34,11 @@ public class CallableTest {
                         System.out.println(o);
                     } catch (InterruptedException e) {
                         System.out.println("THIS IS InterruptedException CAUGHT BY AFTEREXECUTE, ERRORS CAUSED BY: " + e.getMessage());
+                        Thread.currentThread().interrupt();
                     } catch (ExecutionException e) {
                         System.out.println("THIS IS ExecutionException CAUGHT BY AFTEREXECUTE, ERRORS CAUSED BY: " + e.getMessage());
                     }
                 }
-
             }
         };
         MyTask task = new MyTask();
