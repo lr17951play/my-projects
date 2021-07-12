@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.LongAdder;
 
 public class ThreadTest {
 
@@ -103,6 +105,31 @@ public class ThreadTest {
                     System.out.println(i);
                 }
             System.out.println(Thread.currentThread().getName() + " end------>");
+        }
+    }
+
+    LongAdder longAdder = new LongAdder();
+
+    @SneakyThrows
+    @Test
+    public void testLongAdder() {
+        for (int i = 0; i < 10; i++) {
+            Thread thread = new Thread(new MyRunner4());
+            thread.start();
+        }
+        while (Thread.activeCount() > 2) {
+            Thread.yield();
+        }
+        System.out.println(longAdder.intValue());
+    }
+
+    private class MyRunner4 implements Runnable {
+
+        @Override
+        public void run() {
+            for (int i = 0; i < 1000; i ++) {
+                longAdder.increment();
+            }
         }
     }
 }
