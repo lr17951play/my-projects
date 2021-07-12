@@ -41,6 +41,7 @@ public class ThreadTest {
             System.out.println(Thread.currentThread().getName() + " start------>" + threadLocal.get());
             Thread.sleep(1000L);
             System.out.println(Thread.currentThread().getName() + " end------>" + threadLocal.get());
+            threadLocal.remove();
             latch.countDown();
         }
     }
